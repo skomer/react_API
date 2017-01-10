@@ -1,6 +1,5 @@
 var React = require('react');
-// var MovieList = require('../components/MovieList.jsx');
-// var Movie = require('../components/Movie.jsx');
+var MovieList = require('../components/MovieList.jsx');
 
 var MovieContainer = React.createClass({
 
@@ -9,7 +8,10 @@ var MovieContainer = React.createClass({
 
   render: function() {
     return (
-      <h1>Moooooooooooovies</h1>
+      <div className='movie-container'>
+        <h2>Movies directed by the great Clint Eastwood</h2>
+        <MovieList />
+      </div>
     );
   }  
 

@@ -19756,8 +19756,7 @@
 	'use strict';
 	
 	var React = __webpack_require__(1);
-	// var MovieList = require('../components/MovieList.jsx');
-	// var Movie = require('../components/Movie.jsx');
+	var MovieList = __webpack_require__(160);
 	
 	var MovieContainer = React.createClass({
 	  displayName: 'MovieContainer',
@@ -19765,15 +19764,61 @@
 	
 	  render: function render() {
 	    return React.createElement(
-	      'h1',
-	      null,
-	      'Moooooooooooovies'
+	      'div',
+	      { className: 'movie-container' },
+	      React.createElement(
+	        'h2',
+	        null,
+	        'Movies directed by the great Clint Eastwood'
+	      ),
+	      React.createElement(MovieList, null)
 	    );
 	  }
 	
 	});
 	
 	module.exports = MovieContainer;
+
+/***/ },
+/* 160 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	
+	var Movie = __webpack_require__(161);
+	
+	var MovieList = React.createClass({
+	  displayName: 'MovieList',
+	
+	
+	  render: function render() {
+	    return React.createElement(Movie, null);
+	  }
+	
+	});
+	
+	module.exports = MovieList;
+
+/***/ },
+/* 161 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	
+	var Movie = function Movie() {
+	
+	  return React.createElement(
+	    'h3',
+	    null,
+	    'blaaaaa'
+	  );
+	};
+	
+	module.exports = Movie;
 
 /***/ }
 /******/ ]);
