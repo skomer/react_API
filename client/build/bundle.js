@@ -19762,6 +19762,20 @@
 	  displayName: 'MovieContainer',
 	
 	
+	  getInitialState: function getInitialState() {
+	    return { movies: [] };
+	  },
+	  componentDidMount: function componentDidMount() {
+	    var url = "http://netflixroulette.net/api/api.php?director=Clint%20Eastwood";
+	    var request = new XMLHttpRequest();
+	    request.open("GET", url);
+	    request.onload = function () {
+	      var data = JSON.parse(request.responseText);
+	      this.setState({ movies: data });
+	    }.bind(this);
+	    request.send();
+	  },
+	
 	  render: function render() {
 	    return React.createElement(
 	      'div',
