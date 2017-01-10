@@ -4,7 +4,7 @@ var MovieList = require('../components/MovieList.jsx');
 var MovieContainer = React.createClass({
 
   getInitialState: function(){
-    return {movies: []};
+    return {movies: [], director: ''};
   },
   componentDidMount: function(){
     var url = "http://netflixroulette.net/api/api.php?director=Orson%20Welles";
@@ -16,21 +16,38 @@ var MovieContainer = React.createClass({
     }.bind(this);
     request.send();
   },
-
-
   render: function() {
     return (
       <div className='movie-container'>
         <h2>Movies directed by the great Orson Welles</h2>
+        <form
+          className='search-form'
+          onSubmit={this.searchDirector}
+        >
+          <input 
+            type='text'
+            placeholder='Search for a movie director'
+            onChange={this.handleTextChange}
+          />
+          <input 
+            type='submit' 
+            value='Submit' 
+          />
+        </form>
         <MovieList 
           movies={this.state.movies}
         />
       </div>
     );
-  }  
-
-
-
+  },
+  handleTextChange: function(event) {
+    this.setState({director: event.target.value});
+  },
+  searchDirector: function(event) {
+    event.preventDefault();
+    var director = this.state.director;
+    console.log("got to searchDirector", this.state);
+  }
 
 });
 

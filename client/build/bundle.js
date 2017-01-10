@@ -19763,7 +19763,7 @@
 	
 	
 	  getInitialState: function getInitialState() {
-	    return { movies: [] };
+	    return { movies: [], director: '' };
 	  },
 	  componentDidMount: function componentDidMount() {
 	    var url = "http://netflixroulette.net/api/api.php?director=Orson%20Welles";
@@ -19775,7 +19775,6 @@
 	    }.bind(this);
 	    request.send();
 	  },
-	
 	  render: function render() {
 	    return React.createElement(
 	      'div',
@@ -19785,10 +19784,34 @@
 	        null,
 	        'Movies directed by the great Orson Welles'
 	      ),
+	      React.createElement(
+	        'form',
+	        {
+	          className: 'search-form',
+	          onSubmit: this.searchDirector
+	        },
+	        React.createElement('input', {
+	          type: 'text',
+	          placeholder: 'Search for a movie director',
+	          onChange: this.handleTextChange
+	        }),
+	        React.createElement('input', {
+	          type: 'submit',
+	          value: 'Submit'
+	        })
+	      ),
 	      React.createElement(MovieList, {
 	        movies: this.state.movies
 	      })
 	    );
+	  },
+	  handleTextChange: function handleTextChange(event) {
+	    this.setState({ director: event.target.value });
+	  },
+	  searchDirector: function searchDirector(event) {
+	    event.preventDefault();
+	    var director = this.state.director;
+	    console.log("got to searchDirector", this.state);
 	  }
 	
 	});
