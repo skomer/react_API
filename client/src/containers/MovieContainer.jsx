@@ -7,7 +7,7 @@ var MovieContainer = React.createClass({
     return {movies: []};
   },
   componentDidMount: function(){
-    var url = "http://netflixroulette.net/api/api.php?director=Clint%20Eastwood";
+    var url = "http://netflixroulette.net/api/api.php?director=Orson%20Welles";
     var request = new XMLHttpRequest();
     request.open("GET", url);
     request.onload = function(){
@@ -21,7 +21,7 @@ var MovieContainer = React.createClass({
   render: function() {
     return (
       <div className='movie-container'>
-        <h2>Movies directed by the great Clint Eastwood</h2>
+        <h2>Movies directed by the great Orson Welles</h2>
         <MovieList 
           movies={this.state.movies}
         />

@@ -6,7 +6,13 @@ var MovieList = React.createClass({
   render: function() {
     var movies = this.props.movies.map(function(movie, index) {
       return (
-        <Movie show_title={movie.show_title}/>
+        <Movie 
+          show_title={movie.show_title}
+          key={index}
+          poster={movie.poster}
+          release_year={movie.release_year}
+          summary={movie.summary}
+        />
       );
     });
 

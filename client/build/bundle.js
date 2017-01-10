@@ -19766,7 +19766,7 @@
 	    return { movies: [] };
 	  },
 	  componentDidMount: function componentDidMount() {
-	    var url = "http://netflixroulette.net/api/api.php?director=Clint%20Eastwood";
+	    var url = "http://netflixroulette.net/api/api.php?director=Orson%20Welles";
 	    var request = new XMLHttpRequest();
 	    request.open("GET", url);
 	    request.onload = function () {
@@ -19783,7 +19783,7 @@
 	      React.createElement(
 	        'h2',
 	        null,
-	        'Movies directed by the great Clint Eastwood'
+	        'Movies directed by the great Orson Welles'
 	      ),
 	      React.createElement(MovieList, {
 	        movies: this.state.movies
@@ -19810,7 +19810,13 @@
 	
 	  render: function render() {
 	    var movies = this.props.movies.map(function (movie, index) {
-	      return React.createElement(Movie, { show_title: movie.show_title });
+	      return React.createElement(Movie, {
+	        show_title: movie.show_title,
+	        key: index,
+	        poster: movie.poster,
+	        release_year: movie.release_year,
+	        summary: movie.summary
+	      });
 	    });
 	
 	    return React.createElement(
@@ -19828,16 +19834,31 @@
 /* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	var React = __webpack_require__(1);
 	
 	var Movie = function Movie(props) {
 	
 	  return React.createElement(
-	    'h3',
-	    null,
-	    props.show_title
+	    "div",
+	    { className: "movie" },
+	    React.createElement("img", { src: props.poster }),
+	    React.createElement(
+	      "h3",
+	      null,
+	      props.show_title
+	    ),
+	    React.createElement(
+	      "h3",
+	      null,
+	      props.release_year
+	    ),
+	    React.createElement(
+	      "h3",
+	      null,
+	      props.summary
+	    )
 	  );
 	};
 	
