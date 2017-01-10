@@ -19811,7 +19811,8 @@
 	  searchDirector: function searchDirector(event) {
 	    event.preventDefault();
 	    var director = this.state.director;
-	    console.log("got to searchDirector", this.state);
+	    var searchTerm = director.replace(/\s/, '%20');
+	    console.log("got to searchDirector", searchTerm);
 	  }
 	
 	});
