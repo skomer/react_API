@@ -22,7 +22,9 @@ var MovieContainer = React.createClass({
     return (
       <div className='movie-container'>
         <h2>Movies directed by the great Clint Eastwood</h2>
-        <MovieList />
+        <MovieList 
+          movies={this.state.movies}
+        />
       </div>
     );
   }  

@@ -19785,7 +19785,9 @@
 	        null,
 	        'Movies directed by the great Clint Eastwood'
 	      ),
-	      React.createElement(MovieList, null)
+	      React.createElement(MovieList, {
+	        movies: this.state.movies
+	      })
 	    );
 	  }
 	
@@ -19800,7 +19802,6 @@
 	'use strict';
 	
 	var React = __webpack_require__(1);
-	
 	var Movie = __webpack_require__(161);
 	
 	var MovieList = React.createClass({
@@ -19808,7 +19809,15 @@
 	
 	
 	  render: function render() {
-	    return React.createElement(Movie, null);
+	    var movies = this.props.movies.map(function (movie, index) {
+	      return React.createElement(Movie, { show_title: movie.show_title });
+	    });
+	
+	    return React.createElement(
+	      'div',
+	      null,
+	      movies
+	    );
 	  }
 	
 	});
@@ -19823,12 +19832,12 @@
 	
 	var React = __webpack_require__(1);
 	
-	var Movie = function Movie() {
+	var Movie = function Movie(props) {
 	
 	  return React.createElement(
 	    'h3',
 	    null,
-	    'blaaaaa'
+	    props.show_title
 	  );
 	};
 	
